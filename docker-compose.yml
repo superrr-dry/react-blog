@@ -1,0 +1,13 @@
+version: "3.9"
+
+services:
+  frontend:
+    container_name: frontend
+    build: ./docker/frontend
+    volumes:
+      - .:/app:cached
+    ports:
+      - "5173:5173"
+      - "24678:24678"
+    tty: true
+    command: sh -c "npm install && npm run dev"
