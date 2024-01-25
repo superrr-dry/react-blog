@@ -1,27 +1,21 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
-import BlogForm from './Blog';
+import React from 'react';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import BlogForm from './BlogForm';
+import NavigateButton from './Organisms/NavigateButton';
+import Header from './Organisms/Header';
+import Footer from './Organisms/Footer';
 
-function App() {
-  const [count, setCount] = useState(0)
-
+const App: React.FC = () => {
   return (
-    <>
-      <div>
-        <form onSubmit={(e) => e.preventDefault()}>
-          <input type="text" value="" onChange={(e) => e.preventDefault()} />
-          <input
-            type="submit"
-            value="追加"
-            onSubmit={(e) => e.preventDefault()}
-          />
-        </form>
-        <BlogForm />
-      </div>
-    </>
-  )
+    <Router>
+      <Header />
+      <NavigateButton />
+      <Routes>
+        <Route path="/blog" element={<BlogForm />} />
+      </Routes>
+      <Footer />
+    </Router>
+  );
 }
 
-export default App
+export default App;

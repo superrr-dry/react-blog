@@ -1,18 +1,23 @@
 import React, { useState } from 'react';
 import { useForm } from 'react-hook-form';
 
-const BlogForm = () => {
-  const { register, handleSubmit, reset, formState: { errors } } = useForm();
-  const [posts, setPosts] = useState([]);
+interface BlogPost {
+  title: string;
+  content: string;
+}
 
-  const onSubmit = data => {
-    setPosts([...posts, data]);
-    reset();
-  };
-
+const BlogForm: React.FC = () => {
+    const { register, handleSubmit, reset, formState: { errors } } = useForm<BlogPost>();
+    const [posts, setPosts] = useState<BlogPost[]>([]);
+  
+    const onSubmit = (data: BlogPost) => {
+      setPosts([...posts, data]);
+      reset();
+    };
+  
   return (
     <div>
-      {/* <form onSubmit={handleSubmit(onSubmit)}>
+      <form onSubmit={handleSubmit(onSubmit)}>
         <input {...register('title', { required: true })} placeholder="タイトル" />
         {errors.title && <span>タイトルは必須です</span>}
 
@@ -20,7 +25,7 @@ const BlogForm = () => {
         {errors.content && <span>コンテンツは必須です</span>}
 
         <button type="submit">投稿</button>
-      </form> */}
+      </form>
 
       <div>
         {posts.map((post, index) => (
