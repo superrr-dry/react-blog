@@ -1,6 +1,5 @@
-// HomePage.tsx
 import React from 'react';
-import NavigateButton from './NavigateButton';
+import NavigateButton from '../components/NavigateButton';
 
 const HomePage: React.FC = () => {
     return (

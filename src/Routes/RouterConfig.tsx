@@ -1,11 +1,10 @@
 import React from 'react';
 import { Routes, Route } from 'react-router-dom';
-import HomePage from '../components/HomePage';
-import BlogForm from '../components/blogs/BlogForm';
-import BlogList from '../components/blogs/BlogList';
+import HomePage from '../pages/HomePage';
+import BlogList from '../pages/BlogListPage';
+import BlogForm from '../pages/BlogFormPage';
 
-
-export const RouterConfig:React.FC =() => {
+export const RouterConfig: React.FC = () => {
     return (
         <Routes>
             <Route path="/" element={<HomePage />} />

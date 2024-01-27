@@ -1,4 +1,3 @@
-// hooks/useShouldShowButton.ts
 import { useLocation } from 'react-router-dom';
 
 const useShouldShowButton = (pathsToShow: string[]) => {
