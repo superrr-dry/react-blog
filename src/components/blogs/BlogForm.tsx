@@ -1,19 +1,24 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { useForm } from 'react-hook-form';
+import { useNavigate } from 'react-router-dom';
+import NavigateButton from '../NavigateButton';
+import { useBlogContext } from '../../contexts/BlogContext';
 
-interface BlogPost {
+export interface BlogPost {
   title: string;
   content: string;
 }
 
 const BlogForm: React.FC = () => {
-    const { register, handleSubmit, reset, formState: { errors } } = useForm<BlogPost>();
-    const [posts, setPosts] = useState<BlogPost[]>([]);
-  
-    const onSubmit = (data: BlogPost) => {
-      setPosts([...posts, data]);
-      reset();
-    };
+  const { register, handleSubmit, reset, formState: { errors } } = useForm<BlogPost>();
+  const navigate = useNavigate();
+  const { setPosts } = useBlogContext();
+
+  const onSubmit = (data: BlogPost) => {
+    setPosts(prevPosts => [...prevPosts, data]);
+    reset();
+    navigate('/blog'); // 投稿後に一覧画面にナビゲート
+  };
   
   return (
     <div>
@@ -26,15 +31,7 @@ const BlogForm: React.FC = () => {
 
         <button type="submit">投稿</button>
       </form>
-
-      <div>
-        {posts.map((post, index) => (
-          <div key={index}>
-            <h2>{post.title}</h2>
-            <p>{post.content}</p>
-          </div>
-        ))}
-      </div>
+      <NavigateButton to="/blog" text="戻る" />
     </div>
   );
 }

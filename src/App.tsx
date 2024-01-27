@@ -1,19 +1,17 @@
-import React from 'react';
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
-import BlogForm from './BlogForm';
-import NavigateButton from './Organisms/NavigateButton';
-import Header from './Organisms/Header';
-import Footer from './Organisms/Footer';
+import { BrowserRouter as Router } from 'react-router-dom';
+import { BlogProvider } from './contexts/BlogContext';
+import Header from './components/Header';
+import Footer from './components/Footer';
+import { RouterConfig } from './Routes/RouterConfig';
 
 const App: React.FC = () => {
   return (
     <Router>
-      <Header />
-      <NavigateButton />
-      <Routes>
-        <Route path="/blog" element={<BlogForm />} />
-      </Routes>
-      <Footer />
+      <BlogProvider>
+        <Header />
+        <RouterConfig />
+        <Footer />
+      </BlogProvider>
     </Router>
   );
 }
