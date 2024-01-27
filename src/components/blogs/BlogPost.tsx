@@ -1,4 +1,4 @@
-import { useState, useCallback } from 'react';
+import { useState, useCallback, ChangeEvent } from 'react';
 import { BlogPost as BlogPostType, useBlogContext } from '../../contexts/BlogContext';
 
 interface BlogPostProps {
@@ -24,11 +24,11 @@ const BlogPost = ({ post }: BlogPostProps) => {
         deletePost(post.id);
     }, [post.id, deletePost]);
 
-    const handleTitleChange = useCallback((e: React.ChangeEvent<HTMLInputElement>) => {
+    const handleTitleChange = useCallback((e: ChangeEvent<HTMLInputElement>) => {
         setEditedTitle(e.target.value);
     }, []);
 
-    const handleContentChange = useCallback((e: React.ChangeEvent<HTMLTextAreaElement>) => {
+    const handleContentChange = useCallback((e: ChangeEvent<HTMLTextAreaElement>) => {
         setEditedContent(e.target.value);
     }, []);
 
