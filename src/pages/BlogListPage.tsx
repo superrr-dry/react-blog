@@ -1,9 +1,8 @@
-import React from 'react';
 import NavigateButton from '../components/NavigateButton';
 import BlogPostItem from '../components/blogs/BlogPost';
 import { useBlogContext } from '../contexts/BlogContext';
 
-const BlogListPage: React.FC = () => {
+const BlogListPage = () => {
     const { posts } = useBlogContext();
 
     return (

@@ -1,4 +1,3 @@
-import React from 'react';
 import { useNavigate } from 'react-router-dom';
 
 interface NavigateButtonProps {
@@ -6,7 +5,7 @@ interface NavigateButtonProps {
   text: string;
 }
 
-const NavigateButton: React.FC<NavigateButtonProps> = ({ to, text }) => {
+const NavigateButton = ({ to, text }: NavigateButtonProps) => {
   const navigate = useNavigate();
 
   return (

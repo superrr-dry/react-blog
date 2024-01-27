@@ -1,7 +1,6 @@
-import React from 'react';
 import NavigateButton from '../components/NavigateButton';
 
-const HomePage: React.FC = () => {
+const HomePage= () => {
     return (
         <div>
             <NavigateButton to="/blog" text="ブログ一覧" />

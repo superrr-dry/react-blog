@@ -1,9 +1,8 @@
-import React from 'react';
 import { useForm } from 'react-hook-form';
 import NavigateButton from '../components/NavigateButton';
 import { BlogPost, useBlogContext } from '../contexts/BlogContext';
 
-const BlogFormPage: React.FC = () => {
+const BlogFormPage = () => {
   const { register, handleSubmit, reset, formState: { errors } } = useForm<BlogPost>();
   const { addPost } = useBlogContext();
 

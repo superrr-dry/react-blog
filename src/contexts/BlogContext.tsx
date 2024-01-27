@@ -1,4 +1,4 @@
-import React, { createContext, useState, useContext, useCallback, ReactNode } from 'react';
+import { createContext, useState, useContext, useCallback, ReactNode } from 'react';
 
 // ブログ投稿の型定義
 export interface BlogPost {
@@ -31,7 +31,7 @@ interface BlogProviderProps {
 }
 
 // ブログプロバイダコンポーネント
-export const BlogProvider: React.FC<BlogProviderProps> = ({ children }) => {
+export const BlogProvider = ({ children }:BlogProviderProps ) => {
     const [posts, setPosts] = useState<BlogPost[]>([]);
 
     const addPost = useCallback((newPost: Omit<BlogPost, 'id'>) => {

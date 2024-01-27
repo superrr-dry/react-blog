@@ -1,11 +1,11 @@
-import React, { useState, useCallback } from 'react';
+import { useState, useCallback } from 'react';
 import { BlogPost as BlogPostType, useBlogContext } from '../../contexts/BlogContext';
 
 interface BlogPostProps {
     post: BlogPostType;
 }
 
-const BlogPost: React.FC<BlogPostProps> = ({ post }) => {
+const BlogPost = ({ post }: BlogPostProps) => {
     const { updatePost, deletePost } = useBlogContext();
     const [isEditing, setIsEditing] = useState(false);
     const [editedTitle, setEditedTitle] = useState(post.title);
